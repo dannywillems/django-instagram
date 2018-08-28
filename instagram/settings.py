@@ -26,7 +26,9 @@ SECRET_KEY = '@v_880bh5j6x=tpm_c4g#nppfwj40)2!6e2_#-4@gn#c_maf#+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = config("ALLOWED_HOSTS",
+                       cast=lambda v: [s.strip() for s in v.split(',')],
+                       default="localhost")
 
 
 # Application definition
@@ -126,7 +128,7 @@ def build_database_dictionary_from_config():
     database_dict = {}
     database_dict["ATOMIC_REQUESTS"] = True
     database_dict["ENGINE"] = config("DATABASE_ENGINE", default="django.db.backends.sqlite3")
-    database_dict["NAME"] = config("DATABASE_NAME", default="db.sqlite3")
+    database_dict["NAME"] = config("DATABASE_NAME", default=".data/db.sqlite3")
     database_url = config("DATABASE_URL", default=None)
     database_user = config("DATABASE_USER", default=None)
     database_password = config("DATABASE_PASSWORD", default=None)

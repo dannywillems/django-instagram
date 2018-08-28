@@ -3,6 +3,7 @@ FROM python:3.6
 COPY . /usr/src/app
 RUN rm -f /usr/src/app/db.sqlite3
 WORKDIR /usr/src/app
+RUN mkdir -p .data
 
 #ENV DATABASE_HOST django.db.backends.sqlite3
 #ENV DATABASE_PORT
