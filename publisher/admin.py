@@ -9,7 +9,7 @@ class TagAdmin(admin.ModelAdmin):
 
 
 class PublicationAdmin(admin.ModelAdmin):
-    list_display = ("picture", "instagram_account_id", "publish_at")
+    list_display = ("image_tag", "instagram_account_id", "publish_at")
 
 
 class InstagramAccountAdmin(admin.ModelAdmin):
