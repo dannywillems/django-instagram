@@ -12,6 +12,7 @@ ipython = "*"
 django = "==2.0"
 gunicorn = "*"
 python-decouple = "*"
+django-heroku = "*"
 
 
 [requires]
